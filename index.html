@@ -96,7 +96,7 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">父亲写的散文诗 李健 20/05/05</h3>
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-body pantran dis">
                         但愿他们能<span style="color: #fa4558"> 不要活得如此艰难 </span>
                     </div>
                 </div>
@@ -104,7 +104,7 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">理想 赵雷 20/05/05</h3>
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-body pantran dis">
                         因为已是<span style="color: #fa4558"> 当父亲的年纪 </span>
                     </div>
                 </div>
@@ -112,7 +112,7 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">初中前的生活 20/05/05</h3>
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-body pantran dis">
                         我写这个日记的原因
                         <br>
                         今天看吃播，有个博主做了一起腌菜炒肉
@@ -207,6 +207,10 @@
         day: d.getDate(),
         enableUtc: false
     });
+
+    $('.panel-title').click(function () {
+        $(this).closest('.panel').find('.pantran').toggleClass('dis')
+    })
 
     function modelType () {
         var u = navigator.userAgent, app = navigator.appVersion;

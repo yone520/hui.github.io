@@ -656,3 +656,13 @@ form label {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+.pantran {
+    transition: all .6s;
+}
+
+.dis {
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+}

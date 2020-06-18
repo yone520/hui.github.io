@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Router</title>
+</head>
+<body class="breadcrumb-fixed row-minimized ">
+</body>
+<script>
+    let autharr = ['aa', 'aa-a1', 'aa-a1-1', 'dd', 'dd-d2', 'cc']
+    let routePages = [
+        {
+            auth: 'aa',
+            name: '用户管理',
+            children: [
+                {
+                    auth: 'aa-a1',
+                    name: '玩家列表',
+                    children: [
+                        {
+                            auth: 'aa-a1-1',
+                            name: '玩家列表中的列表'
+                        }, {
+                            auth: 'aa-a1-2',
+                            name: '不应该存在的玩家列表'
+                        }
+                    ]
+                },
+                {
+                    auth: 'aa-a2',
+                    name: '牌局记录'
+                }
+            ]
+        }, {
+            auth: 'bb',
+            name: '客服中心',
+            children: [
+                {
+                    auth: 'bb-b1',
+                    name: '玩家反馈'
+                },
+                {
+                    auth: 'bb-b2',
+                    name: '短信记录'
+                }
+            ]
+        }, {
+            auth: 'cc',
+            name: '数据统计',
+            children: [
+                {
+                    auth: 'cc-c1',
+                    name: '房间在线人数'
+                },
+                {
+                    auth: 'cc-c2',
+                    name: '机器人统计数据'
+                }
+            ]
+        }, {
+            auth: 'dd',
+            name: '充值管理',
+            children: [
+                {
+                    auth: 'dd-d1',
+                    name: '充值订单'
+                },
+                {
+                    auth: 'dd-d2',
+                    name: '支付设置'
+                }
+            ]
+        }, {
+            auth: 'ee',
+            name: '第三方管理',
+            children: [
+                {
+                    auth: 'dd-d1',
+                    name: '第三方订单报表'
+                },
+                {
+                    auth: 'dd-d2',
+                    name: '渠道设置'
+                }
+            ]
+        }
+    ]
+
+    function gt (routerArr) {
+        // console.log(routerArr, '--------------------')
+        const arr = [];
+        let obj = {};
+        routerArr.forEach(router => {
+            const tmp = { ...router };
+            // console.log(tmp, '???????????????????')
+            if (autharr.includes(tmp.auth)) {  //只筛选auth 在autharr数组中的对象
+                if (tmp.children) {
+                    tmp.children = gt(tmp.children);
+                    // console.log(tmp, '??????????????????????????????????????')
+                }
+                obj = {
+                    ...tmp
+                }
+                arr.push(obj);
+                console.log(arr, '-----------------')
+            }
+        })
+        return arr;
+    }
+
+    // for (let i = routePages.length - 1; i >= 0; i--) {
+    //     if (!autharr.includes(routePages[i]['auth'])) {
+    //         routePages.splice(i, 1)
+    //         continue
+    //     }
+    //     if (routePages[i]['children']) {
+    //         for (let j = routePages[i]['children'].length - 1; j >= 0; j--) {
+    //             if (!autharr.includes(routePages[i]['children'][j]['auth'])) {
+    //                 routePages[i]['children'].splice(j, 1)
+    //             }
+    //         }
+    //     }
+    // }
+
+    let json = [
+        {
+            "id": 64,
+            "code": "565",
+            "name": "共和国",
+            "label": "共和国",
+            "parentId": 0,
+            "type": 2,
+            "seq": 0,
+            "url": "/public",
+            "description": "同意",
+            "children": []
+        },
+        {
+            "id": 1,
+            "code": "sys_mgnt",
+            "name": "系统管理",
+            "label": "系统管理",
+            "parentId": 0,
+            "type": 1,
+            "url": "/system",
+            "seq": 1,
+            "description": "aaa",
+            "children": [
+                {
+                    "id": 28,
+                    "name": "测试二级菜单1",
+                    "label": "测试二级菜单1",
+                    "parentId": 1,
+                    "type": 1,
+                    "url": "/add",
+                    "seq": 1,
+                    "description": "测试二级菜单的描述",
+                    "children": [
+                        {
+                            "id": 288,
+                            "name": "三级菜单1",
+                            "label": "三级菜单1",
+                            "parentId": 11,
+                            "type": 1,
+                            "url": "/add1",
+                            "seq": 1,
+                            "description": "三级菜单1的描述",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "id": 30,
+                    "name": "新增角色管理",
+                    "label": "新增角色管理",
+                    "parentId": 1,
+                    "type": 2,
+                    "seq": 1,
+                    "description": "新增角色管理的描述",
+                    "children": []
+                },
+                {
+                    "id": 31,
+                    "name": "add角色管理",
+                    "label": "add角色管理",
+                    "parentId": 1,
+                    "type": 1,
+                    "seq": 1,
+                    "description": "add角色管理的描述",
+                    "children": []
+                },
+                {
+                    "id": 3,
+                    "code": "ro_mgnt",
+                    "name": "角色管理",
+                    "label": "角色管理",
+                    "parentId": 1,
+                    "type": 1,
+                    "url": "",
+                    "seq": 2,
+                    "children": [
+                        {
+                            "id": 32,
+                            "name": "可以成功",
+                            "label": "可以成功",
+                            "parentId": 3,
+                            "type": 1,
+                            "url": "/ctrl",
+                            "seq": 1,
+                            "description": "能成功吗的描述",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+
+    // function formatRoutes (routerArr) {
+    //     const arr = [];
+    //     let obj = {};
+    //     routerArr.forEach(router => {
+    //         const tmp = { ...router };
+    //         if (tmp.type == 1) {  //只筛选出type=1的项
+    //             if (tmp.children) {
+    //                 tmp.children = formatRoutes(tmp.children);
+    //             }
+    //             obj = {
+    //                 path: tmp.url,
+    //                 name: tmp.name,
+    //                 meta: { title: tmp.name },
+    //                 children: tmp.children
+    //             }
+    //             arr.push(obj);
+    //         }
+    //     })
+    //     return arr;
+    // }
+</script>
+</html>

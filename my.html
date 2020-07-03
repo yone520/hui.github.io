@@ -10,7 +10,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>简历</title>
+    <title>2020十月旅行计划</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
@@ -25,29 +25,171 @@
     <meta name="twitter:image" content=""/>
     <meta name="twitter:url" content=""/>
     <meta name="twitter:card" content=""/>
+    <link rel="stylesheet" href="./ele/theme.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #app {
+            padding: 20px;
+        }
+        .text {
+            font-size: 14px;
+        }
 
-    <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700' rel='stylesheet'
-          type='text/css'>
+        .item {
+            margin-bottom: 18px;
+        }
 
-    <!-- Animate.css -->
-    <link rel="stylesheet" href="css/animate.css">
-    <!-- Icomoon Icon Fonts-->
-    <link rel="stylesheet" href="css/icomoon.css">
-    <!-- Bootstrap  -->
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <!-- Theme style  -->
-    <link rel="stylesheet" href="css/style.css">
+        .clearfix:before,
+        .clearfix:after {
+            display: table;
+            content: "";
+        }
+        .clearfix:after {
+            clear: both
+        }
 
-    <!-- Modernizr JS -->
-    <script src="js/modernizr-2.6.2.min.js"></script>
-    <!-- FOR IE9 below -->
-    <!--[if lt IE 9]>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->
-
+        .box-card {
+            width: 100%;
+        }
+        .content-context {
+            padding: 20px 0 30px 0;
+        }
+        .el-step__description {
+            padding-right: 5%;
+        }
+    </style>
 </head>
 <body>
-简历
+<div id="app">
+    <div style="">
+        <h2 style="color: #409eff;text-align: center;margin-bottom: 20px;"> --- S T A R T ---</h2>
+        <el-steps direction="vertical" :active="1">
+            <el-step title="峨眉山 - 2天">
+                <template v-slot:description>
+                    <div class="content-context">
+                        <el-card class="box-card">
+                            <div slot="header" class="clearfix">
+                                <h2>目标 - 金顶看日出和云海 <br><small>夏季：日出：6：00<br>冬季：日出：7：00</small></h2>
+                            </div>
+                            <el-timeline>
+                                <el-timeline-item
+                                  v-for="(activity, index) in activities"
+                                  :key="index"
+                                  :color="activity.color"
+                                  :timestamp="activity.timestamp">
+                                    <div v-html="activity.content"></div>
+                                </el-timeline-item>
+                            </el-timeline>
+                        </el-card>
+                    </div>
+                </template>
+            </el-step>
+            <el-step title="乐山大佛 - 1天">
+                <template v-slot:description>
+                    <div class="content-context">
+                        <el-card class="box-card">
+                            <div slot="header" class="clearfix">
+                                <h2>目标 - 走遍乐山大佛<br>
+                                    <small>
+                                        07:30-18:30 (4/1-10/7)<br>
+                                        08:00-17:30 (10/8-次年3/31)
+                                    </small>
+                                </h2>
+                            </div>
+                            <el-timeline>
+                                <el-timeline-item
+                                  v-for="(activity, index) in activities2"
+                                  :key="index"
+                                  :color="activity.color"
+                                  :timestamp="activity.timestamp">
+                                    <div v-html="activity.content"></div>
+                                </el-timeline-item>
+                            </el-timeline>
+                        </el-card>
+                    </div>
+                </template>
+            </el-step>
+            <el-step title="跟我走吧，一起回老家">
+                <template v-slot:description>
+                    <h2 style="padding: 10px 0;">去给妈看病，然后去妈的老家</h2>
+                    <p>2020-10-4</p>
+                </template>
+            </el-step>
+        </el-steps>
+        <h2 style="color: #409eff;text-align: center;margin-top: 20px;">--- E N D ---</h2>
+    </div>
+</div>
 </body>
+<script src="./ele/vue.js"></script>
+<script src="./ele/element.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            activities: [{
+                content: `<div>
+                                开车 -> 成都 -> 峨眉山游人中心
+                                <br>时间接近三个小时
+                                <img src="http://b1-q.mafengwo.net/s10/M00/19/3F/wKgBZ1kIpSuAPeG-AAK3Hlv2t0g971.png?imageView2%2F2%2Fh%2F682%2Fq%2F90%7Cwatermark%2F1%2Fimage%2FaHR0cDovL24xLXEubWFmZW5nd28ubmV0L3MxMS9NMDAvOTEvNzAvd0tnQkVGcF9faTZBUHYtZEFBQUwxMzg3aE0wNjk5LnBuZw%3D%3D%2Fgravity%2FSouthEast%2Fdx%2F10%2Fdy%2F11" alt="">
+                                <img src="http://b1-q.mafengwo.net/s11/M00/47/37/wKgBEFpC41-AUBt8AASocqk9I4M579.png?imageView2%2F2%2Fw%2F446%2Fq%2F90%7Cwatermark%2F1%2Fimage%2FaHR0cDovL24xLXEubWFmZW5nd28ubmV0L3MxMS9NMDAvOTEvNzAvd0tnQkVGcF9faTZBUHYtZEFBQUwxMzg3aE0wNjk5LnBuZw%3D%3D%2Fgravity%2FSouthEast%2Fdx%2F10%2Fdy%2F11" alt="">
+                                <div style="border-top:1px solid #dcdfe6;margin: 5px 0"></div>
+                                看情况选择开车上雷洞坪或者坐车上雷洞坪，因为积雪不太安全，汽车都会有防滑链，对路况比较熟悉
+                                <br>时间也接近三个小时
+                                <div style="border-top:1px solid #dcdfe6;margin: 5px 0"></div>
+                                雷洞坪滑雪后如果不太好耍，直接当天上金顶住宿
+                                <div style="border-top:1px solid #dcdfe6;margin: 5px 0"></div>
+                                雷洞坪走到接引殿(2540)需要30-60分钟左右，接引殿到金顶索道120(往返)一人，下了索道还需要走一小段路，就到达金顶(3077)
+                          </div>`,
+                timestamp: '2020-10-01'
+            }, {
+                content: `<div>
+                                看日出往回走，回到雷洞坪坐车回游人中心
+                                <div style="border-top:1px solid #dcdfe6;margin: 5px 0"></div>
+                                泡个温泉 - 吃顿大餐
+                          </div>`,
+                timestamp: '2020-10-02'
+            }, {
+                content: '结束峨眉山之行',
+                timestamp: '2020-10-02'
+            }],
+
+            activities2: [{
+                content: `<div>
+                                早上六点出发
+                                <div style="border-top:1px solid #dcdfe6;margin: 5px 0"></div>
+                                可以在八仙洞坐船，然后自由行，没那么多讲究，耍安逸就回了
+                          </div>`,
+                timestamp: '2020-10-03'
+            }, {
+                content: `<div>
+                                乐山钵钵鸡
+                                <div style="border-top:1px solid #dcdfe6;margin: 5px 0"></div>
+                                芳芳跷脚牛肉
+                                <div style="border-top:1px solid #dcdfe6;margin: 5px 0"></div>
+                                甜皮鸭
+                                <div style="border-top:1px solid #dcdfe6;margin: 5px 0"></div>
+                                咔咔儿
+                                <div style="border-top:1px solid #dcdfe6;margin: 5px 0"></div>
+                                蛋烘糕
+                                <div style="border-top:1px solid #dcdfe6;margin: 5px 0"></div>
+                                烧烤
+                                <div style="border-top:1px solid #dcdfe6;margin: 5px 0"></div>
+                                九妹凤爪
+                                <div style="border-top:1px solid #dcdfe6;margin: 5px 0"></div>
+                                豆腐脑
+                          </div>`,
+                timestamp: '2020-10-03'
+            }]
+        },
+        methods: {
+            aler() {
+                alert(123)
+            }
+        }
+    })
+</script>
 </html>
 
